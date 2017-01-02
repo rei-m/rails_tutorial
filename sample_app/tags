@@ -7,6 +7,7 @@
 ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
 AddIndexToUsersEmail	db/migrate/20161227111523_add_index_to_users_email.rb	/^class AddIndexToUsersEmail < ActiveRecord::Migration[5.0]$/;"	c
 AddPasswordDigestToUsers	db/migrate/20161227113130_add_password_digest_to_users.rb	/^class AddPasswordDigestToUsers < ActiveRecord::Migration[5.0]$/;"	c
+AddRememberDigestToUsers	db/migrate/20170102044803_add_remember_digest_to_users.rb	/^class AddRememberDigestToUsers < ActiveRecord::Migration[5.0]$/;"	c
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:SampleApp
 ApplicationCable	app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
 ApplicationCable	app/channels/application_cable/connection.rb	/^module ApplicationCable$/;"	m
@@ -20,6 +21,9 @@ Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCabl
 Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable
 CreateUsers	db/migrate/20161227100851_create_users.rb	/^class CreateUsers < ActiveRecord::Migration[5.0]$/;"	c
 SampleApp	config/application.rb	/^module SampleApp$/;"	m
+SessionsController	app/controllers/sessions_controller.rb	/^class SessionsController < ApplicationController$/;"	c
+SessionsControllerTest	test/controllers/sessions_controller_test.rb	/^class SessionsControllerTest < ActionDispatch::IntegrationTest$/;"	c
+SessionsHelper	app/helpers/sessions_helper.rb	/^module SessionsHelper$/;"	m
 SiteLayoutTest	test/integration/site_layout_test.rb	/^class SiteLayoutTest < ActionDispatch::IntegrationTest$/;"	c
 StaticPagesController	app/controllers/static_pages_controller.rb	/^class StaticPagesController < ApplicationController$/;"	c
 StaticPagesControllerTest	test/controllers/static_pages_controller_test.rb	/^class StaticPagesControllerTest < ActionDispatch::IntegrationTest$/;"	c
@@ -29,21 +33,43 @@ UserTest	test/models/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"
 UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
 UsersControllerTest	test/controllers/users_controller_test.rb	/^class UsersControllerTest < ActionDispatch::IntegrationTest$/;"	c
 UsersHelper	app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
+UsersLoginTest	test/integration/users_login_test.rb	/^class UsersLoginTest < ActionDispatch::IntegrationTest$/;"	c
+UsersSignupTest	test/integration/users_signup_test.rb	/^class UsersSignupTest < ActionDispatch::IntegrationTest$/;"	c
 about	app/controllers/static_pages_controller.rb	/^  def about$/;"	f	class:StaticPagesController
+authenticated?	app/models/user.rb	/^  def authenticated?(remember_token)$/;"	f	class:User
 cable	app/assets/javascripts/cable.js	/^  App.cable = ActionCable.createConsumer();$/;"	r
 change	db/migrate/20161227100851_create_users.rb	/^  def change$/;"	f	class:CreateUsers
 change	db/migrate/20161227111523_add_index_to_users_email.rb	/^  def change$/;"	f	class:AddIndexToUsersEmail
 change	db/migrate/20161227113130_add_password_digest_to_users.rb	/^  def change$/;"	f	class:AddPasswordDigestToUsers
+change	db/migrate/20170102044803_add_remember_digest_to_users.rb	/^  def change$/;"	f	class:AddRememberDigestToUsers
 contact	app/controllers/static_pages_controller.rb	/^  def contact$/;"	f	class:StaticPagesController
+create	app/controllers/sessions_controller.rb	/^  def create$/;"	f	class:SessionsController
+create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+current_user	app/helpers/sessions_helper.rb	/^  def current_user$/;"	f	class:SessionsHelper
+destroy	app/controllers/sessions_controller.rb	/^  def destroy$/;"	f	class:SessionsController
+digest	app/models/user.rb	/^    def digest(string)$/;"	f	class:User
+forget	app/helpers/sessions_helper.rb	/^  def forget(user)$/;"	f	class:SessionsHelper
+forget	app/models/user.rb	/^  def forget$/;"	f	class:User
 full_title	app/helpers/application_helper.rb	/^  def full_title(page_title = '')$/;"	f	class:ApplicationHelper
 gravatar_for	app/helpers/users_helper.rb	/^  def gravatar_for(user)$/;"	f	class:UsersHelper
+gravatar_for	app/helpers/users_helper.rb	/^  def gravatar_for(user, size:80)$/;"	f	class:UsersHelper
 hello	app/controllers/application_controller.rb	/^  def hello$/;"	f	class:ApplicationController
 help	app/controllers/static_pages_controller.rb	/^  def help$/;"	f	class:StaticPagesController
 home	app/controllers/static_pages_controller.rb	/^  def home$/;"	f	class:StaticPagesController
+is_logged_in?	test/test_helper.rb	/^  def is_logged_in?$/;"	f	class:ActiveSupport
+log_in	app/helpers/sessions_helper.rb	/^  def log_in(user)$/;"	f	class:SessionsHelper
+log_out	app/helpers/sessions_helper.rb	/^  def log_out$/;"	f	class:SessionsHelper
+logged_in?	app/helpers/sessions_helper.rb	/^  def logged_in?$/;"	f	class:SessionsHelper
+new	app/controllers/sessions_controller.rb	/^  def new$/;"	f	class:SessionsController
 new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
+new_token	app/models/user.rb	/^    def new_token$/;"	f	class:User
+remember	app/helpers/sessions_helper.rb	/^  def remember(user)$/;"	f	class:SessionsHelper
+remember	app/models/user.rb	/^  def remember$/;"	f	class:User
 setup	test/controllers/static_pages_controller_test.rb	/^  def setup$/;"	f	class:StaticPagesControllerTest
 setup	test/helpers/application_helper_test.rb	/^  def setup$/;"	f	class:ApplicationHelperTest
+setup	test/integration/users_login_test.rb	/^  def setup$/;"	f	class:UsersLoginTest
 setup	test/models/user_test.rb	/^  def setup$/;"	f	class:UserTest
 show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
 system!	bin/setup	/^def system!(*args)$/;"	f
 system!	bin/update	/^def system!(*args)$/;"	f
+user_params	app/controllers/users_controller.rb	/^    def user_params$/;"	f	class:UsersController
