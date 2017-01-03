@@ -6,7 +6,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
               format: { with: VALID_EMAIL_REGEX },
               uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 6 }
+  # has_secure_passwordの設定によって allow_nil をつけても新規登録 = object生成時に必須チェックが走る
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   has_secure_password
 
   # 永続セッションのためにユーザーをデータベースに記憶する
