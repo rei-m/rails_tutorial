@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # dependent: :destoryで依存しているユーザーが消えたら関連するmicropostが全部消えるようにする
+  has_many :microposts, dependent: :destroy
+
   # Virtual Attributesを設定
   attr_accessor :remember_token, :activation_token, :reset_token
   # callback
@@ -56,6 +59,12 @@ class User < ApplicationRecord
   # パスワード再設定の期限が切れている場合はtrueを返す
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  # 試作feedの定義
+  # 完全な実装は次章の「ユーザーをフォローする」を参照
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 
   class << self
