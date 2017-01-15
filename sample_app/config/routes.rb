@@ -12,10 +12,24 @@ Rails.application.routes.draw do
 
   delete '/logout',  to: 'sessions#destroy'
 
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
+  # collection メソッドを使うとidを指定しないで集合を取ることができる
+  # resources :users do
+  #   collection do
+  #     get :tigers
+  #   end
+  # end
+
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
+  resources :relationships,       only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
